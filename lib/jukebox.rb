@@ -42,20 +42,21 @@ def play (songs)
  end 
  
  def run(songs)
-   puts "Please enter a command:"
-   response = gets.strip
-   case response
-      when "exit"
-        return exit_jukebox
-      end
-   while !!(response == exit)
+  while true do
+    puts "Please enter a command:"
+    response = gets.chomp
     case response
-      when "list"
-        list(songs)
-      when "help"
-        help
-      when "play"
-        play(songs)
+    when "exit"
+      exit_jukebox
+      break
+    when "play"
+      play(songs)
+    when "help"
+      help
+    when "list"
+      list(songs)
+    else
+      puts "Invalid entry"
+    end
   end
- end
- end
+  end
